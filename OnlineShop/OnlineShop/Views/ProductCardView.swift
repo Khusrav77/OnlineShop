@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductCardView: View {
     // MARK: - Properties
     let product: Product
+    @State private var counter = 0
     
     // MARK: - Body
     var body: some View {
@@ -17,29 +18,112 @@ struct ProductCardView: View {
         GeometryReader { geo in
             let size = geo.size
             
-            ZStack(alignment: .topTrailing) {
-                if let url = URL(string: product.image) {
-                    CardImageView(url: url, width: size.width, height: size.height)
+            ZStack(alignment: .bottomTrailing) {
+               
+                VStack(alignment: .leading) {
                     
-                    // MARK: Button
-                    Button {
-                        // action
-                    } label: {
-                        Image(systemName: "heart.circle.fill")
-                            .foregroundStyle(product.isFavorite ? .red : .white)
-                            .background(.black)
+                    ZStack(alignment: .topTrailing) {
+                        if let url = URL(string: product.image) {
+                            CardImageView(url: url, width: size.width, height: size.height * 0.5)
+                            //
+                            HStack {
+                                Text("новинка")
+                                    .font(.system(size: 12))
+                                    .padding(.horizontal,6)
+                                    .background(.purple.opacity(0.8))
+                                    .clipShape(.rect(cornerRadius: 6))
+                                
+                                Spacer()
+                                
+                                // MARK: Button is favorite
+                                Button {
+                                    // action
+                                } label: {
+                                    Image(systemName: "heart.fill")
+                                        .padding(6)
+                                        .foregroundStyle(product.isFavorite ? .red : .gray.opacity(0.2))
+                                        .background(Color.white)
+                                        .clipShape(Circle())
+                                        .shadow(radius: 1)
+                                        
+                                }
+                                .padding(.trailing,6)
+                                .padding(.top,6)
+                            }
+                        }
                     }
+                    
+                    // Raiting
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundStyle(.yellow)
+                        
+                        Text("4.8")
+                            .subtitle()
+                        
+                        Spacer()
+                        
+                        // Sale
+                        Text("-25%")
+                            .titleFont()
+                            .foregroundStyle(.red)
+                    }
+                    .padding(.horizontal, 6)
+                    .padding(.bottom,2)
+                    
+                    // Product information
+                    Text(product.name)
+                        .titleFont()
+                        .lineLimit(2)
+                        .padding(.leading, 6)
+                    // Country
+                    HStack {
+                        Text("Франция")
+                            .subtitle()
+                            
+                            .padding(.horizontal,6)
+                        
+                        Image("france")
+                    }
+                    
+                    Spacer()
+                    // Price
+                    HStack {
+                        Text("\(product.price)")
+                            .titleFont()
+                        .padding(.leading, 6)
+                        
+                        Text("₽/кг")
+                            .subtitle()
+                    }
+                    
+                    Text("1000")
+                        .subtitle()
+                        .strikethrough()
+                        .foregroundStyle(.gray)
+                        .padding(.horizontal, 6)
+                        .padding(.bottom, 4)
+                    
                 }
+           
+               CartButton(counter: $counter, pricePerUnit: 99)
+                    .padding(.horizontal,6)
+                    .padding(.bottom,4)
+                   
             }
+            
         }
         .frame(height: UIScreen.main.bounds.width * 0.7)
         .background(.background.opacity(0.5))
-        .padding(10)
+        .clipShape(.rect(cornerRadius: 20))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray.opacity(0.2)))
+        .padding(8)
+        
     }
 }
 #Preview {
     ProductCardView(product: Product(
-        name: "gg",
+        name: "Энергетический Напиток",
         discription: "ff",
         image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",
         price: 99,
