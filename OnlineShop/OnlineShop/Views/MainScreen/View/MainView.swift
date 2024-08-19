@@ -24,6 +24,8 @@ struct MainView: View {
                     }
                 }
             }
+            .padding(.horizontal,8)
+           
             // MARK: - Navigation Bar
             .navigationTitle("Products")
             .toolbar{

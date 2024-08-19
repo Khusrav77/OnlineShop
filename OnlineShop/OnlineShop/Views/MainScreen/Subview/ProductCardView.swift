@@ -107,26 +107,19 @@ struct ProductCardView: View {
                 }
            
                CartButton(counter: $counter, pricePerUnit: 99)
-                    .padding(.horizontal,6)
+                    .padding(.horizontal,4)
                     .padding(.bottom,4)
                    
             }
             
         }
         .frame(height: UIScreen.main.bounds.width * 0.7)
-        .background(.background.opacity(0.5))
+        .background(.white)
         .clipShape(.rect(cornerRadius: 20))
         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray.opacity(0.2)))
-        .padding(8)
-        
+        .shadow(color: .black.opacity(0.1), radius: 8)
     }
 }
 #Preview {
-    ProductCardView(product: Product(
-        name: "Энергетический Напиток",
-        discription: "ff",
-        image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",
-        price: 99,
-        isFavorite: false
-    ))
+    MainView()
 }
