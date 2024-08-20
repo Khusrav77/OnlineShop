@@ -12,7 +12,7 @@ import Firebase
 struct FavoritesView: View {
     
     // MARK: - Properties
-    @FirestoreQuery(collectionPath: "shop", predicates: [.isEqualTo("isFavorite", true)])
+    @FirestoreQuery(collectionPath: "Shop", predicates: [.isEqualTo("isFavorite", true)])
     private var favoritesItems: [Product]
     var columns = Array(repeating: GridItem(), count: 2)
     
@@ -20,12 +20,14 @@ struct FavoritesView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: columns) {
                 ForEach(favoritesItems) { item in
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: DetailView(product: item)) {
                         ProductCardView(product: item)
                     }
+                    //.buttonStyle(.plain)
                 }
             }
         }
+        .padding(.horizontal, 8)
         .navigationTitle("Favorites")
     }
 }

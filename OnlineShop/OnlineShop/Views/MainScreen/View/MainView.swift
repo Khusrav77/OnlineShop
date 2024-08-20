@@ -11,8 +11,9 @@ import FirebaseFirestore
 struct MainView: View {
     
     // MARK: - Properties
-    @FirestoreQuery(collectionPath: "Shop") 
-    var items: [Product]
+    @EnvironmentObject var vm: ViewModel
+    @FirestoreQuery(collectionPath: "Shop") var items: [Product]
+    
     var columns = Array(repeating: GridItem(), count: 2)
     
     var body: some View {
@@ -20,36 +21,42 @@ struct MainView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: columns) {
                     ForEach(items) { item in
-                        ProductCardView(product: item)
+                        NavigationLink(destination: DetailView(product: item)) {
+                            ProductCardView(product: item)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+               
+                
+                // MARK: - Navigation Bar
+                .navigationTitle("Products")
+                .toolbar{
+                    ToolbarItem(placement: .topBarLeading) {
+                        NavigationLink(destination: FavoritesView()) {
+                            Image(systemName: "square.grid.2x2")
+                                .font(.title2)
+                                .foregroundStyle(.green)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: CartView()) {
+                            Image(systemName: "cart")
+                                .font(.title2)
+                                .foregroundStyle(.green)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
             .padding(.horizontal,8)
-           
-            // MARK: - Navigation Bar
-            .navigationTitle("Products")
-            .toolbar{
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink(destination: FavoritesView()) {
-                    Image(systemName: "square.grid.2x2.fill")
-                            .font(.title2)
-                    }
-                    .buttonStyle(.plain)
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: CartView()) {
-                        Image(systemName: "cart.fill")
-                            .font(.title2)
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
         }
     }
 }
 
 #Preview {
-    
     MainView()
+        .environmentObject(ViewModel())
 }

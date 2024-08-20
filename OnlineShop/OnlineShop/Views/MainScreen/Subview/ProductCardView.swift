@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductCardView: View {
     // MARK: - Properties
+    @EnvironmentObject var vm: ViewModel
     let product: Product
     @State private var counter = 0
     
@@ -18,100 +19,122 @@ struct ProductCardView: View {
         GeometryReader { geo in
             let size = geo.size
             
-            ZStack(alignment: .bottomTrailing) {
-               
-                VStack(alignment: .leading) {
-                    
-                    ZStack(alignment: .topTrailing) {
+            VStack(alignment: .leading) {
+                
+                ZStack(alignment: .top) {
                         if let url = URL(string: product.image) {
                             CardImageView(url: url, width: size.width, height: size.height * 0.5)
-                            //
-                            HStack {
-                                Text("новинка")
-                                    .font(.system(size: 12))
-                                    .padding(.horizontal,6)
-                                    .background(.purple.opacity(0.8))
-                                    .clipShape(.rect(cornerRadius: 6))
+                                .padding(.top,8)
+                            
+                            // New or Sale
+                            HStack{
+                                VStack {
+                                    Text("новинка")
+                                        .font(.system(size: 12))
+                                        .foregroundStyle(.white)
+                                        .padding(.vertical, 2)
+                                        .padding(.trailing, 6)
+                                        .padding(.leading, 8)
+                                        .background(.purple.opacity(0.8))
+                                        .clipShape(.rect(cornerRadius: 6))
+                                    Spacer()
+                                }
                                 
                                 Spacer()
                                 
                                 // MARK: Button is favorite
-                                Button {
-                                    // action
-                                } label: {
-                                    Image(systemName: "heart.fill")
-                                        .padding(6)
-                                        .foregroundStyle(product.isFavorite ? .red : .gray.opacity(0.2))
-                                        .background(Color.white)
-                                        .clipShape(Circle())
-                                        .shadow(radius: 1)
+                                VStack {
+                                    isFavoriteButton {
+                                        vm.toglleFavorite(product: product)
                                         
+                                    }
+                                    .foregroundStyle(product.isFavorite ? .red : .white)
+ 
+                                    
+                                    Spacer()
                                 }
-                                .padding(.trailing,6)
+                                .padding(.trailing,8)
                                 .padding(.top,6)
                             }
+                            
+                            // is Favorite
+                            VStack{
+                                Spacer()
+                                // Raiting
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                        .foregroundStyle(.yellow)
+                                    
+                                    Text("4.8")
+                                        .subtitle()
+                                        .foregroundStyle(.black)
+                                    Spacer()
+                                    
+                                    // Sale
+                                    Text("-25%")
+                                        .titleFont()
+                                        .foregroundStyle(.red)
+                                }
+                            }
+                            .padding(.horizontal, 8)
                         }
                     }
+                .frame(width: size.width, height: size.height * 0.6)
                     
-                    // Raiting
-                    HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundStyle(.yellow)
-                        
-                        Text("4.8")
-                            .subtitle()
+                // Product information
+                ZStack(alignment: .bottomTrailing) {
+                    
+                    VStack(alignment: .leading) {
+                        Text(product.name)
+                            .titleFont()
+                            .multilineTextAlignment(.leading)
+                            .foregroundStyle(.black)
+                            .lineLimit(2)
+                       
+                        // Country
+                        HStack {
+                            Text("Франция")
+                                .subtitle()
+                                .foregroundStyle(.black)
+                                .multilineTextAlignment(.leading)
+                            
+                            Image("france")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 15, height: 14)
+                        }
                         
                         Spacer()
-                        
-                        // Sale
-                        Text("-25%")
-                            .titleFont()
-                            .foregroundStyle(.red)
-                    }
-                    .padding(.horizontal, 6)
-                    .padding(.bottom,2)
-                    
-                    // Product information
-                    Text(product.name)
-                        .titleFont()
-                        .lineLimit(2)
-                        .padding(.leading, 6)
-                    // Country
-                    HStack {
-                        Text("Франция")
-                            .subtitle()
+                        // Price
+                        HStack {
+                            Text("\(product.price)")
+                                .titleFont()
+                                .foregroundStyle(.black)
+                                .multilineTextAlignment(.leading)
                             
-                            .padding(.horizontal,6)
+                            Text("₽/кг")
+                                .subtitle()
+                                .foregroundStyle(.black)
+                                .multilineTextAlignment(.leading)
+                        }
                         
-                        Image("france")
-                    }
-                    
-                    Spacer()
-                    // Price
-                    HStack {
-                        Text("\(product.price)")
-                            .titleFont()
-                        .padding(.leading, 6)
-                        
-                        Text("₽/кг")
+                        Text("1000")
                             .subtitle()
+                            .strikethrough()
+                            .foregroundStyle(.gray)
+                            .padding(.bottom)
                     }
-                    
-                    Text("1000")
-                        .subtitle()
-                        .strikethrough()
-                        .foregroundStyle(.gray)
-                        .padding(.horizontal, 6)
-                        .padding(.bottom, 4)
+                    .padding(.horizontal, 8)
+                    VStack(alignment: .trailing){
+                        Spacer()
+                        CartButton(counter: $counter, pricePerUnit: Double(product.price))
+                            .padding(6)
+                            .padding(.bottom,6)
+                    }
                     
                 }
-           
-               CartButton(counter: $counter, pricePerUnit: 99)
-                    .padding(.horizontal,4)
-                    .padding(.bottom,4)
-                   
+                .frame(width: size.width, height: size.height * 0.4)
             }
-            
         }
         .frame(height: UIScreen.main.bounds.width * 0.7)
         .background(.white)
@@ -122,4 +145,5 @@ struct ProductCardView: View {
 }
 #Preview {
     MainView()
+        .environmentObject(ViewModel())
 }
