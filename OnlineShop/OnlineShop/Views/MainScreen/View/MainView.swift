@@ -40,6 +40,15 @@ struct MainView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                   
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: FavoritesView()) {
+                            Image(systemName: "heart")
+                                .font(.title2)
+                                .foregroundStyle(.green)
+                        }
+                        .buttonStyle(.plain)
+                    }
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink(destination: CartView()) {
@@ -49,6 +58,7 @@ struct MainView: View {
                         }
                         .buttonStyle(.plain)
                     }
+                    
                 }
             }
             .padding(.horizontal,8)

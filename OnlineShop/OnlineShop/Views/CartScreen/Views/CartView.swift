@@ -6,10 +6,19 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct CartView: View {
+    // MARK: - Properties
+    
+    
+    // MARK: - Body
     var body: some View {
+        
         VStack {
+            ScrollView {
+                
+            }
             
         }
         .navigationTitle("Cart")
