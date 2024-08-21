@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProductRow: View {
+struct ProductRowView: View {
     
     // MARK: - Properties
     let product: Product
@@ -20,7 +20,7 @@ struct ProductRow: View {
             HStack(spacing: 20) {
                 if let url = URL(string: product.image) {
                     CardImageView(url: url, width: 80, height: 80)
-                        .padding(10)
+                        .padding(8)
                         .shadow(radius: 1)
                 }
                 
@@ -45,13 +45,13 @@ struct ProductRow: View {
         }
         .background(.background)
         .clipShape(.rect(cornerRadius: 20))
-        .shadow(radius: 3)
+        .shadow(radius: 2)
         
     }
 }
 
 #Preview {
-    ProductRow(product: Product(
+    ProductRowView(product: Product(
         name: "Энергетик",
         discription: "jfjnbnkirebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f2jfndkjnvj",
         image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",

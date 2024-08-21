@@ -11,13 +11,14 @@ struct RemoteControlRowView: View {
     
     // MARK: - Properties
     let product: Product
-    
+    @EnvironmentObject var vm: ViewModel
     // MARK: - Body
     var body: some View {
         
         VStack(alignment: .trailing, spacing: 20) {
+            // removeFromCart
             Button {
-                
+                vm.removeFromCart(product: product)
             }label: {
                 Image(systemName: "xmark")
                     .font(.title3)
@@ -26,8 +27,9 @@ struct RemoteControlRowView: View {
             }
             
             HStack (spacing: 20){
+                // decreaseQuantity
                 Button {
-                    
+                    vm.decreaseQuantity(product: product)
                 }label: {
                     Image(systemName: "minus")
                         .font(.title3)
@@ -39,9 +41,9 @@ struct RemoteControlRowView: View {
                     Text("\(quantityinCart)")
                         .titleFont()
                 }
-                
+                // increaseQuantity
                 Button {
-                    
+                    vm.increaseQuantity(product: product)
                 }label: {
                     Image(systemName: "plus")
                         .font(.title3)

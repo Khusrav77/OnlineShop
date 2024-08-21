@@ -12,7 +12,7 @@ struct MainView: View {
     
     // MARK: - Properties
     @EnvironmentObject var vm: ViewModel
-    @FirestoreQuery(collectionPath: "Shop") var items: [Product]
+    @FirestoreQuery(collectionPath: "Shop") private var items: [Product]
     
     var columns = Array(repeating: GridItem(), count: 2)
     
