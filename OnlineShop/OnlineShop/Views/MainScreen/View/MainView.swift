@@ -12,7 +12,7 @@ struct MainView: View {
     
     // MARK: - Properties
     @EnvironmentObject var vm: ViewModel
-    @FirestoreQuery(collectionPath: "Shop") var items: [Product]
+    @FirestoreQuery(collectionPath: "Shop") private var items: [Product]
     
     var columns = Array(repeating: GridItem(), count: 2)
     
@@ -40,15 +40,23 @@ struct MainView: View {
                         }
                         .buttonStyle(.plain)
                     }
-                    
+                   
                     ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: CartView()) {
-                            Image(systemName: "cart")
+                        NavigationLink(destination: FavoritesView()) {
+                            Image(systemName: "heart")
                                 .font(.title2)
                                 .foregroundStyle(.green)
                         }
                         .buttonStyle(.plain)
                     }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: CartView()) {
+                            InfoCartButton(numberOfProducts: vm.cartItemCount)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    
                 }
             }
             .padding(.horizontal,8)

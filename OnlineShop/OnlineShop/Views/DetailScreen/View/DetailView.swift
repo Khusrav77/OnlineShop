@@ -105,18 +105,9 @@ struct DetailView: View {
                 }
                 Spacer()
                 
-                Button {
-                    
-                }label: {
-                    Text("Add to cart")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.black.opacity(0.7))
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.gray.opacity(0.1))
-                        .clipShape(Capsule())
-                        .shadow(color: .black.opacity(0.3), radius: 10, x: 5, y: 8)
-                }
+                CustomMainButton(title: "Add to cart") {
+                    vm.addToCart(product: product)
+                } 
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 30)
