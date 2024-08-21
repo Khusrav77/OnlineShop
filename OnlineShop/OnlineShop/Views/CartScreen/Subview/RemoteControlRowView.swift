@@ -17,23 +17,14 @@ struct RemoteControlRowView: View {
         
         VStack(alignment: .trailing, spacing: 20) {
             // removeFromCart
-            Button {
+            CustomRemoteControlButton(name: "xmark") {
                 vm.removeFromCart(product: product)
-            }label: {
-                Image(systemName: "xmark")
-                    .font(.title3)
-                    .foregroundStyle(.gray)
-                
             }
             
             HStack (spacing: 20){
                 // decreaseQuantity
-                Button {
+                CustomRemoteControlButton(name: "minus") {
                     vm.decreaseQuantity(product: product)
-                }label: {
-                    Image(systemName: "minus")
-                        .font(.title3)
-                        .foregroundStyle(.black.opacity(0.8))
                 }
                 .padding(8)
                 
@@ -42,12 +33,8 @@ struct RemoteControlRowView: View {
                         .titleFont()
                 }
                 // increaseQuantity
-                Button {
+                CustomRemoteControlButton(name: "plus") {
                     vm.increaseQuantity(product: product)
-                }label: {
-                    Image(systemName: "plus")
-                        .font(.title3)
-                        .foregroundStyle(.black.opacity(0.8))
                 }
                 .padding(8)
             }
