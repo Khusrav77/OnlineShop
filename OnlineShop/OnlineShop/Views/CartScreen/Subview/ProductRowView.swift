@@ -29,8 +29,12 @@ struct ProductRowView: View {
                         .titleFont()
                     
                     HStack {
-                        Text("\(product.price)₽/кг")
-                            .titleFont()
+                        if let quantityinCart = product.quantityinCart {
+                            let sum = quantityinCart * product.price
+                            Text("\(sum) ₽/кг")
+                                .titleFont()
+                        }
+                       
                     }
                     .padding(.horizontal,10)
                     .padding(.vertical,5)
@@ -57,4 +61,5 @@ struct ProductRowView: View {
         image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",
         price: 99,
         isFavorite: false, quantityinCart: 4))
+    .environmentObject(ViewModel())
 }

@@ -12,8 +12,34 @@ final class ViewModel: ObservableObject{
     
     // MARK: - Properties
     private var db = Firestore.firestore().collection("Shop")
+    @Published var cartItems: [Product] = []
+    
+    var cartItemCount: Int {
+        cartItems.filter{ $0.quantityinCart ?? 0 > 0 }.count
+    }
+    
+    var totalPrice: Int {
+        cartItems.reduce(0) { $0 + ($1.price * ($1.quantityinCart ?? 0))}
+    }
+    
+    init() {
+        fetchItems()
+    }
     
     // MARK: - Methods
+    private func fetchItems() {
+        db.addSnapshotListener { snapahot, error in
+            guard let document = snapahot?.documents else {
+                print("Error fertching documents: \(error!)")
+                return
+            }
+            
+            self.cartItems = document.compactMap { document -> Product? in
+                try? document.data(as: Product.self)
+            }
+        }
+    }
+    
     func toglleFavorite(product: Product) {
         updateItem(product, data: ["isFavorite" : !product.isFavorite])
     }

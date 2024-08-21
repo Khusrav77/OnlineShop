@@ -12,7 +12,7 @@ struct CartView: View {
     // MARK: - Properties
    // let product: Product
     @FirestoreQuery(collectionPath: "Shop") private var items: [Product]
-    
+    @EnvironmentObject var vm: ViewModel
     // MARK: - Body
     var body: some View {
         
@@ -25,13 +25,19 @@ struct CartView: View {
             }
             
             HStack {
-                Text("Итого:")
+                Text("\(vm.cartItemCount) товаров")
                     .titleFont()
                 
-                Text("")
+                Text("на Сумму: \(vm.totalPrice) ₽.")
+                    .titleFont()
+                
+                
             }
+            .padding(.horizontal,10)
+            .padding(.vertical,5)
+            .background(.gray.opacity(0.1))
+            .clipShape(Capsule())
             
-            Spacer()
             
             CustomMainButton(title: "Оформить заказ") {}
                 .padding()
@@ -42,4 +48,5 @@ struct CartView: View {
 
 #Preview {
     CartView()
+        .environmentObject(ViewModel())
 }

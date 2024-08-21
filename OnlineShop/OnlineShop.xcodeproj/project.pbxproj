@@ -29,6 +29,7 @@
 		A472D9772C75050A00FB63C2 /* ProductRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472D9762C75050A00FB63C2 /* ProductRowView.swift */; };
 		A472D9792C75325200FB63C2 /* RemoteControlRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472D9782C75325200FB63C2 /* RemoteControlRowView.swift */; };
 		A47752F92C75D9F800072968 /* CustomMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47752F82C75D9F800072968 /* CustomMainButton.swift */; };
+		A47752FB2C75F35800072968 /* InfoCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47752FA2C75F35800072968 /* InfoCartButton.swift */; };
 		A477F5272C753E5A00FAA578 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A477F5262C753E5A00FAA578 /* FirebaseDatabase */; };
 		A477F5292C753E7100FAA578 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A477F5282C753E7100FAA578 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		A472D9762C75050A00FB63C2 /* ProductRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRowView.swift; sourceTree = "<group>"; };
 		A472D9782C75325200FB63C2 /* RemoteControlRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlRowView.swift; sourceTree = "<group>"; };
 		A47752F82C75D9F800072968 /* CustomMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainButton.swift; sourceTree = "<group>"; };
+		A47752FA2C75F35800072968 /* InfoCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			children = (
 				A472D9762C75050A00FB63C2 /* ProductRowView.swift */,
 				A472D9782C75325200FB63C2 /* RemoteControlRowView.swift */,
+				A47752FA2C75F35800072968 /* InfoCartButton.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				A472D9772C75050A00FB63C2 /* ProductRowView.swift in Sources */,
 				A45D63F62C73DE7A00E32EB3 /* SwiftUIView.swift in Sources */,
 				A43FC49E2C720F5200BFA6A5 /* Extension+Text.swift in Sources */,
+				A47752FB2C75F35800072968 /* InfoCartButton.swift in Sources */,
 				A472D9792C75325200FB63C2 /* RemoteControlRowView.swift in Sources */,
 				A43E3F282C6CB1C40040C715 /* CartView.swift in Sources */,
 				A432AB0E2C703B40007FBB49 /* CardImageView.swift in Sources */,
