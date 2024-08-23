@@ -1,13 +1,13 @@
 //
-//  CustomRemoteControlButton.swift
+//  DeletButton.swift
 //  OnlineShop
 //
-//  Created by Khusrav Safiev on 8/21/24.
+//  Created by Khusrav Safiev on 8/22/24.
 //
 
 import SwiftUI
 
-struct CustomRemoteControlButton: View {
+struct DeleteButton: View {
     // MARK: - Properties
     let name: String
     let action: () -> Void
@@ -21,7 +21,10 @@ struct CustomRemoteControlButton: View {
             Image(systemName: name)
                 .font(.title3)
                 .foregroundStyle(.gray)
+                .padding(6)
                 .background(.white)
+                .clipShape(Circle())
+                .shadow(color: .black.opacity(0.1), radius: 8)
                
             
         }
@@ -30,5 +33,5 @@ struct CustomRemoteControlButton: View {
 }
 
 #Preview {
-    CustomRemoteControlButton(name: "xmark", action: {})
+    DeleteButton(name: "xmark", action: {})
 }

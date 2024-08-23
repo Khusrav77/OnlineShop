@@ -20,7 +20,7 @@ struct BackButton: View {
                 Circle()
                     .frame(width: 34)
                     .foregroundStyle(.gray)
-                    .opacity(0.5)
+                    .opacity(0.3)
                 Image(systemName: "chevron.left")
                     .font(.title3)
                     .fontWeight(.medium)

@@ -10,7 +10,8 @@
 		A41557692C74AF080042B9FC /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41557682C74AF080042B9FC /* BackButton.swift */; };
 		A415576B2C74CB7C0042B9FC /* isFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A415576A2C74CB7C0042B9FC /* isFavoriteButton.swift */; };
 		A432AB0E2C703B40007FBB49 /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A432AB0D2C703B40007FBB49 /* CardImageView.swift */; };
-		A432AB102C705A87007FBB49 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A432AB0F2C705A87007FBB49 /* CartButton.swift */; };
+		A432AB102C705A87007FBB49 /* AddToCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A432AB0F2C705A87007FBB49 /* AddToCartButton.swift */; };
+		A4345D092C78B3060034C010 /* ProductListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4345D082C78B3060034C010 /* ProductListCardView.swift */; };
 		A43E3F262C6CB1A70040C715 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E3F252C6CB1A70040C715 /* FavoritesView.swift */; };
 		A43E3F282C6CB1C40040C715 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E3F272C6CB1C40040C715 /* CartView.swift */; };
 		A43E3F2A2C6CBD010040C715 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E3F292C6CBD010040C715 /* ProductCardView.swift */; };
@@ -32,13 +33,18 @@
 		A47752FD2C760BBF00072968 /* CustomRemoteControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47752FC2C760BBF00072968 /* CustomRemoteControlButton.swift */; };
 		A477F5272C753E5A00FAA578 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A477F5262C753E5A00FAA578 /* FirebaseDatabase */; };
 		A477F5292C753E7100FAA578 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A477F5282C753E7100FAA578 /* FirebaseStorage */; };
+		A4BD63582C77562A00C41C62 /* CustomRegulatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD63572C77562A00C41C62 /* CustomRegulatorButton.swift */; };
+		A4BD635A2C776ACD00C41C62 /* ConfirmOrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD63592C776ACD00C41C62 /* ConfirmOrderButton.swift */; };
+		A4BD635C2C779D9A00C41C62 /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD635B2C779D9A00C41C62 /* HomeButton.swift */; };
+		A4BD635E2C77CE0100C41C62 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD635D2C77CE0100C41C62 /* DeleteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A41557682C74AF080042B9FC /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		A415576A2C74CB7C0042B9FC /* isFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isFavoriteButton.swift; sourceTree = "<group>"; };
 		A432AB0D2C703B40007FBB49 /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
-		A432AB0F2C705A87007FBB49 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		A432AB0F2C705A87007FBB49 /* AddToCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartButton.swift; sourceTree = "<group>"; };
+		A4345D082C78B3060034C010 /* ProductListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCardView.swift; sourceTree = "<group>"; };
 		A43E3F252C6CB1A70040C715 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		A43E3F272C6CB1C40040C715 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		A43E3F292C6CBD010040C715 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
@@ -58,6 +64,10 @@
 		A47752F82C75D9F800072968 /* CustomMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainButton.swift; sourceTree = "<group>"; };
 		A47752FA2C75F35800072968 /* InfoCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCartButton.swift; sourceTree = "<group>"; };
 		A47752FC2C760BBF00072968 /* CustomRemoteControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRemoteControlButton.swift; sourceTree = "<group>"; };
+		A4BD63572C77562A00C41C62 /* CustomRegulatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegulatorButton.swift; sourceTree = "<group>"; };
+		A4BD63592C776ACD00C41C62 /* ConfirmOrderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderButton.swift; sourceTree = "<group>"; };
+		A4BD635B2C779D9A00C41C62 /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		A4BD635D2C77CE0100C41C62 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				A432AB0D2C703B40007FBB49 /* CardImageView.swift */,
-				A432AB0F2C705A87007FBB49 /* CartButton.swift */,
 				A41557682C74AF080042B9FC /* BackButton.swift */,
 				A415576A2C74CB7C0042B9FC /* isFavoriteButton.swift */,
 				A47752F82C75D9F800072968 /* CustomMainButton.swift */,
@@ -116,8 +125,12 @@
 		A43FC4A22C72298B00BFA6A5 /* Subview */ = {
 			isa = PBXGroup;
 			children = (
-				A47752FA2C75F35800072968 /* InfoCartButton.swift */,
 				A43E3F292C6CBD010040C715 /* ProductCardView.swift */,
+				A4345D082C78B3060034C010 /* ProductListCardView.swift */,
+				A47752FA2C75F35800072968 /* InfoCartButton.swift */,
+				A432AB0F2C705A87007FBB49 /* AddToCartButton.swift */,
+				A4BD63572C77562A00C41C62 /* CustomRegulatorButton.swift */,
+				A4BD635B2C779D9A00C41C62 /* HomeButton.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -244,6 +257,8 @@
 				A472D9762C75050A00FB63C2 /* ProductRowView.swift */,
 				A472D9782C75325200FB63C2 /* RemoteControlRowView.swift */,
 				A47752FC2C760BBF00072968 /* CustomRemoteControlButton.swift */,
+				A4BD63592C776ACD00C41C62 /* ConfirmOrderButton.swift */,
+				A4BD635D2C77CE0100C41C62 /* DeleteButton.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -329,7 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A43E3F2A2C6CBD010040C715 /* ProductCardView.swift in Sources */,
-				A432AB102C705A87007FBB49 /* CartButton.swift in Sources */,
+				A432AB102C705A87007FBB49 /* AddToCartButton.swift in Sources */,
+				A4345D092C78B3060034C010 /* ProductListCardView.swift in Sources */,
 				A472D9772C75050A00FB63C2 /* ProductRowView.swift in Sources */,
 				A43FC49E2C720F5200BFA6A5 /* Extension+Text.swift in Sources */,
 				A47752FB2C75F35800072968 /* InfoCartButton.swift in Sources */,
@@ -338,12 +354,16 @@
 				A432AB0E2C703B40007FBB49 /* CardImageView.swift in Sources */,
 				A45D4D582C734669001509E0 /* DetailView.swift in Sources */,
 				A415576B2C74CB7C0042B9FC /* isFavoriteButton.swift in Sources */,
+				A4BD635C2C779D9A00C41C62 /* HomeButton.swift in Sources */,
 				A43FC4A52C72425B00BFA6A5 /* ViewModel.swift in Sources */,
+				A4BD63582C77562A00C41C62 /* CustomRegulatorButton.swift in Sources */,
 				A43E3F262C6CB1A70040C715 /* FavoritesView.swift in Sources */,
+				A4BD635E2C77CE0100C41C62 /* DeleteButton.swift in Sources */,
 				A443F0EF2C62221500E0C35C /* MainView.swift in Sources */,
 				A47752F92C75D9F800072968 /* CustomMainButton.swift in Sources */,
 				A443F0ED2C62221500E0C35C /* OnlineShopApp.swift in Sources */,
 				A41557692C74AF080042B9FC /* BackButton.swift in Sources */,
+				A4BD635A2C776ACD00C41C62 /* ConfirmOrderButton.swift in Sources */,
 				A47752FD2C760BBF00072968 /* CustomRemoteControlButton.swift in Sources */,
 				A443F10F2C623D0800E0C35C /* Product.swift in Sources */,
 			);

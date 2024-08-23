@@ -18,12 +18,13 @@ struct isFavoriteButton: View {
         Button{
             toggleAction()
         }label: {
-            ZStack{
-                Circle()
-                    .frame(width: 34)
-                    .foregroundStyle(.gray)
-                    .opacity(0.1)
                 Image(systemName: "heart.fill")
+                .font(.title3)
+                .padding(6)
+                .background(.gray.opacity(0.1))
+                .clipShape(Circle())
+                .shadow(color: .black.opacity(0.1), radius: 8)
+                
                    
             }
             
@@ -31,7 +32,7 @@ struct isFavoriteButton: View {
             
         }
     }
-}
+
 
 #Preview {
     isFavoriteButton(toggleAction: {})

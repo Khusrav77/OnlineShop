@@ -21,7 +21,7 @@ struct ProductRowView: View {
                 if let url = URL(string: product.image) {
                     CardImageView(url: url, width: 80, height: 80)
                         .padding(8)
-                        .shadow(radius: 1)
+                        .shadow(color: .black.opacity(0.1), radius: 8)
                 }
                 
                 VStack(alignment: .leading, spacing: 20) {
@@ -47,9 +47,9 @@ struct ProductRowView: View {
             RemoteControlRowView(product: product)
             
         }
-        .background(.background)
+        .background(.white)
         .clipShape(.rect(cornerRadius: 20))
-        .shadow(radius: 2)
+        .shadow(color: .black.opacity(0.1), radius: 8)
         
     }
 }
@@ -60,6 +60,8 @@ struct ProductRowView: View {
         discription: "jfjnbnkirebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f2jfndkjnvj",
         image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",
         price: 99,
-        isFavorite: false, quantityinCart: 4))
+        isFavorite: false, 
+        quantityinCart: 4,
+        isNewArrival: ""))
     .environmentObject(ViewModel())
 }

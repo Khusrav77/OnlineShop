@@ -17,7 +17,7 @@ struct RemoteControlRowView: View {
         
         VStack(alignment: .trailing, spacing: 20) {
             // removeFromCart
-            CustomRemoteControlButton(name: "xmark") {
+            DeleteButton(name: "xmark") {
                 vm.removeFromCart(product: product)
             }
             
@@ -38,8 +38,9 @@ struct RemoteControlRowView: View {
                 }
                 .padding(8)
             }
-            .background(.gray.opacity(0.1))
+            .background(.white)
             .clipShape(Capsule())
+            .shadow(color: .black.opacity(0.1), radius: 8)
         }
         .padding()
     }
@@ -51,5 +52,7 @@ struct RemoteControlRowView: View {
         discription: "jfjnbnkirebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f2jfndkjnvj",
         image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",
         price: 99,
-        isFavorite: false, quantityinCart: 4))
+        isFavorite: false, quantityinCart: 4,
+        isNewArrival:""))
+    
 }

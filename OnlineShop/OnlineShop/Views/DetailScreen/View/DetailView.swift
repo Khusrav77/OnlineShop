@@ -124,6 +124,7 @@ struct DetailView: View {
         discription: "jfjnbnkirebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f2jfndkjnvj",
         image: "https://firebasestorage.googleapis.com/v0/b/onlineshop-89822.appspot.com/o/1.jpg?alt=media&token=a05d20f7-6ece-4271-82c0-f3f1bf552f22",
         price: 99,
-        isFavorite: false))
+        isFavorite: false,
+        isNewArrival: ""))
     .environmentObject(ViewModel())
 }

@@ -20,12 +20,14 @@ struct CustomMainButton: View {
         }label: {
             Text(title)
                 .fontWeight(.bold)
-                .foregroundStyle(.black.opacity(0.7))
+                .foregroundStyle(.black.opacity(0.8))
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(.gray.opacity(0.1))
+                .background(.yellow.opacity(0.6))
                 .clipShape(Capsule())
-                .shadow(color: .black.opacity(0.3), radius: 10, x: 5, y: 8)
+                .shadow(color: .black.opacity(0.1), radius: 8)
+            
+            
         }
     }
 }

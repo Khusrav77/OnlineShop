@@ -16,33 +16,20 @@ struct CartView: View {
     // MARK: - Body
     var body: some View {
         
-        VStack {
-            ScrollView(.vertical, showsIndicators: false){
-                ForEach(items.filter { $0.quantityinCart ?? 0 > 0 }) { item in
-                    ProductRowView(product: item)
-                        .padding(.horizontal,10)
+        ZStack(alignment: .bottom){
+            VStack {
+                ScrollView(.vertical, showsIndicators: false){
+                    ForEach(items.filter { $0.quantityinCart ?? 0 > 0 }) { item in
+                        ProductRowView(product: item)
+                            .padding(.horizontal,10)
+                    }
                 }
+                .padding(.bottom, 50)
             }
+            .navigationTitle("Cart")
             
-            HStack {
-                Text("\(vm.cartItemCount) товаров")
-                    .titleFont()
-                
-                Text("на Сумму: \(vm.totalPrice) ₽.")
-                    .titleFont()
-                
-                
-            }
-            .padding(.horizontal,10)
-            .padding(.vertical,5)
-            .background(.gray.opacity(0.1))
-            .clipShape(Capsule())
-            
-            
-            CustomMainButton(title: "Оформить заказ") {}
-                .padding()
+            ConfirmOrderButton(count: "\(vm.cartItemCount) товаров на сумму", total: "\(vm.totalPrice) ₽.")
         }
-        .navigationTitle("Cart")
     }
 }
 

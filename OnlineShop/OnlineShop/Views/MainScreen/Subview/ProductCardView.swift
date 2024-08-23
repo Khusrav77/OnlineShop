@@ -11,7 +11,7 @@ struct ProductCardView: View {
     // MARK: - Properties
     @EnvironmentObject var vm: ViewModel
     let product: Product
-    @State private var counter = 0
+   // @State private var counter = 0
     
     // MARK: - Body
     var body: some View {
@@ -46,10 +46,8 @@ struct ProductCardView: View {
                                 VStack {
                                     isFavoriteButton {
                                         vm.toglleFavorite(product: product)
-                                        
                                     }
-                                    .foregroundStyle(product.isFavorite ? .red : .white)
- 
+                                    .foregroundStyle(product.isFavorite ? .red.opacity(0.8) : .white.opacity(0.6))
                                     
                                     Spacer()
                                 }
@@ -57,7 +55,7 @@ struct ProductCardView: View {
                                 .padding(.top,6)
                             }
                             
-                            // is Favorite
+                            // is Raiting
                             VStack{
                                 Spacer()
                                 // Raiting
@@ -81,16 +79,16 @@ struct ProductCardView: View {
                     }
                 .frame(width: size.width, height: size.height * 0.6)
                     
-                // Product information
-                ZStack(alignment: .bottomTrailing) {
-                    
+                // Product Information
+                VStack(alignment: .leading) {
+                    // Product Name
                     VStack(alignment: .leading) {
                         Text(product.name)
                             .titleFont()
                             .multilineTextAlignment(.leading)
                             .foregroundStyle(.black)
                             .lineLimit(2)
-                       
+                        
                         // Country
                         HStack {
                             Text("Франция")
@@ -104,33 +102,43 @@ struct ProductCardView: View {
                                 .frame(width: 15, height: 14)
                         }
                         
-                        Spacer()
-                        // Price
-                        HStack {
-                            Text("\(product.price)")
-                                .titleFont()
-                                .foregroundStyle(.black)
-                                .multilineTextAlignment(.leading)
+                    }
+                    .padding(.horizontal,10)
+                    
+                    ZStack(alignment: .bottomTrailing){
+                        HStack{
+                            VStack(alignment: .leading){
+                                HStack {
+                                    // Price
+                                    Text("\(product.price)")
+                                        .titleFont()
+                                        .foregroundStyle(.black)
+                                        .multilineTextAlignment(.leading)
+                                    
+                                    Text("₽/кг")
+                                        .subtitle()
+                                        .foregroundStyle(.black)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                Text("1000")
+                                    .subtitle()
+                                    .strikethrough()
+                                    .foregroundStyle(.gray)
+                               
+                            }
+                            Spacer()
                             
-                            Text("₽/кг")
-                                .subtitle()
-                                .foregroundStyle(.black)
-                                .multilineTextAlignment(.leading)
                         }
+                        .padding(.horizontal, 10)
+                        .padding(.bottom,6)
                         
-                        Text("1000")
-                            .subtitle()
-                            .strikethrough()
-                            .foregroundStyle(.gray)
-                            .padding(.bottom)
-                    }
-                    .padding(.horizontal, 8)
-                    VStack(alignment: .trailing){
-                        Spacer()
-                        CartButton(counter: $counter, pricePerUnit: Double(product.price))
+                        AddToCartButton(product: product)
                             .padding(6)
-                            .padding(.bottom,6)
                     }
+                    .frame(height: 50)
+                    
+                    
                     
                 }
                 .frame(width: size.width, height: size.height * 0.4)
@@ -139,7 +147,6 @@ struct ProductCardView: View {
         .frame(height: UIScreen.main.bounds.width * 0.7)
         .background(.white)
         .clipShape(.rect(cornerRadius: 20))
-        .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray.opacity(0.2)))
         .shadow(color: .black.opacity(0.1), radius: 8)
     }
 }
